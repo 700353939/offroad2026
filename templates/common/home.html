@@ -1,18 +1,21 @@
 {% extends "common/base.html" %}
+{% load static %}
 
 {% block content %}
 
-<section class="hero">
+    <section class="hero">
+    
+        <h1>O F F R O A D</h1>
+        
+        <p>Discover amazing offroad destinations and share your adventure stories.</p>
 
-    <h1>Offroad</h1>
+        <div class="hero-buttons">
+            <a href="{% url 'destination-list' %}" class="btn">Explore Destinations</a>
+            <a href="{% url 'story-create' %}" class="btn">Share Story</a>
+        </div>
+    
+        <div class="logo"><img src="{% static 'images/off-road.png' %}"></div>
 
-    <p>Discover amazing offroad destinations and share your adventure stories.</p>
-
-    <div class="hero-buttons">
-        <a href="{% url 'destination-list' %}" class="btn">Explore Destinations</a>
-        <a href="{% url 'story-create' %}" class="btn">Share Story</a>
-    </div>
-
-</section>
+    </section>
 
 {% endblock %}

@@ -2,26 +2,28 @@
 
 {% block content %}
 
-<div class="details">
+    <div class="details">
 
-    <img src="{{ destination.image_url }}" alt="destination">
+        <img src="{{ destination.image_url }}" alt="destination">
 
-    <h1>{{ destination.name }}</h1>
+        <h1>{{ destination.name }}</h1>
 
-    <p><strong>Location:</strong> {{ destination.location }}</p>
+        <p><strong>Location:</strong> {{ destination.location }}</p>
 
-    <p><strong>Difficulty:</strong> {{ destination.difficulty }}</p>
+        <p><strong>Difficulty:</strong> {{ destination.difficulty }}</p>
 
-    <p>{{ destination.description }}</p>
+        <p>{{ destination.description }}</p>
 
-    <div class="buttons">
+        <div class="buttons">
 
-        <a href="{% url 'destination-edit' destination.pk %}" class="btn">Edit</a>
+            <a href="{% url 'destination-edit' destination.pk %}" class="btn">Edit</a>
 
-        <a href="{% url 'destination-delete' destination.pk %}" class="btn delete">Delete</a>
+            <a href="{% url 'destination-delete' destination.pk %}" class="btn delete">Delete</a>
+
+            <a href="{% url 'destination-list' %}" class="btn">Back</a>
+
+        </div>
 
     </div>
-
-</div>
 
 {% endblock %}

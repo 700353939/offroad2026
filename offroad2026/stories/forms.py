@@ -2,7 +2,7 @@ from django import forms
 from offroad2026.stories.models import Story
 
 
-class StoryCreateForm(forms.ModelForm):
+class StoryBaseForm(forms.ModelForm):
 
     class Meta:
         model = Story
@@ -42,6 +42,13 @@ class StoryCreateForm(forms.ModelForm):
             )
 
         return title
+
+
+class StoryCreateForm(StoryBaseForm):
+    pass
+
+class StoryEditForm(StoryBaseForm):
+    pass
 
 
 class StoryDeleteForm(forms.ModelForm):

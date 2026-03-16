@@ -1,0 +1,39 @@
+{% extends "common/base.html" %}
+
+{% block content %}
+
+    <div class="details">
+
+        <h1>{{ story.title }}</h1>
+
+        <p><strong>Destination:</strong> {{ story.destination.name }}</p>
+
+        <p><strong>Date:</strong> {{ story.trip_date }}</p>
+
+        <p>{{ story.content }}</p>
+
+        <h3>Vehicles used:</h3>
+
+        <ul>
+
+            {% for vehicle in story.vehicles.all %}
+
+                <li>{{ vehicle.brand }} {{ vehicle.model }}</li>
+
+            {% endfor %}
+
+        </ul>
+
+        <div class="buttons">
+            
+            <a href="{% url 'story-edit' story.pk %}" class="btn">Edit</a>
+
+            <a href="{% url 'story-delete' story.pk %}" class="btn delete">Delete</a>
+
+            <a href="{% url 'story-list' %}" class="btn">Back</a>
+
+        </div>
+
+    </div>
+
+{% endblock %}

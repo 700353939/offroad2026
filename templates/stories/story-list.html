@@ -1,0 +1,29 @@
+{% extends "common/base.html" %}
+
+{% block content %}
+
+    <h1>Stories</h1>
+    
+    <a href="{% url 'story-create'%}" class="btn">Add new story</a>
+
+    <div class="card-container">
+
+        {% for story in stories %}
+
+            <div class="card">
+
+                <h3>{{ story.title }}</h3>
+
+                <p>Destination: {{ story.destination.name }}</p>
+
+                <p>Date: {{ story.trip_date }}</p>
+
+                <a href="{% url 'story-details' story.pk %}" class="btn">Read</a>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

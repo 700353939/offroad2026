@@ -1,7 +1,13 @@
-<nav>
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'destination-list' %}">Destinations</a>
-    <a href="{% url 'vehicle-list' %}">Vehicles</a>
-    <a href="{% url 'story-list' %}">Stories</a>
-    <a href="{% url 'story-create' %}">Add Story</a>
+{% load static %}
+<nav class="navbar">
+    <link rel="icon" href="{% static 'images/off-road.png' %}">
+    <h2 class="logo">O F F R O A D</h2>
+
+    <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'destination-list' %}">Destinations</a></li>
+        <li><a href="{% url 'vehicle-list' %}">Vehicles</a></li>
+        <li><a href="{% url 'story-list' %}">Stories</a></li>
+        <li><a href="{% url 'story-create' %}">Add Story</a></li>
+    </ul>
 </nav>

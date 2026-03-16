@@ -1,0 +1,31 @@
+{% extends "common/base.html" %}
+
+{% block content %}
+
+    <div class="details">
+
+        <img src="{{ vehicle.image_url }}" alt="vehicle">
+
+        <h1>{{ vehicle.brand }} {{ vehicle.model }}</h1>
+
+        <p><strong>Year:</strong> {{ vehicle.year }}</p>
+
+        <p><strong>Engine:</strong> {{ vehicle.engine }}</p>
+
+        <p><strong>Horsepower:</strong> {{ vehicle.horsepower }}</p>
+
+        <p>{{ vehicle.description }}</p>
+
+        <div class="buttons">
+    
+            <a href="{% url 'vehicle-edit' vehicle.pk %}" class="btn">Edit</a>
+            
+            <a href="{% url 'vehicle-delete' vehicle.pk %}" class="btn delete">Delete</a>
+
+            <a href="{% url 'vehicle-list' %}" class="btn">Back</a>
+
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "common/base.html" %}
+
+{% block content %}
+
+    <h1>Vehicles</h1>
+    
+    <a href="{% url 'vehicle-create'%}" class="btn">Add new vehicle</a>
+
+    <div class="card-container">
+
+        {% for vehicle in vehicles %}
+
+            <div class="card">
+
+                <img src="{{ vehicle.image_url }}" alt="vehicle">
+
+                <h3>{{ vehicle.brand }} {{ vehicle.model }}</h3>
+
+                <p>{{ vehicle.year }}</p>
+
+                <a href="{% url 'vehicle-details' vehicle.pk %}" class="btn">Details</a>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
