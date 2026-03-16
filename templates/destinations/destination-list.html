@@ -1,0 +1,27 @@
+{% extends "common/base.html" %}
+
+{% block content %}
+
+<h1>Destinations</h1>
+
+<div class="card-container">
+
+    {% for destination in destinations %}
+
+        <div class="card">
+
+            <img src="{{ destination.image_url }}" alt="destination">
+
+            <h3>{{ destination.name }}</h3>
+
+            <p>{{ destination.location }}</p>
+
+            <a href="{% url 'destination-details' destination.pk %}" class="btn">Details</a>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

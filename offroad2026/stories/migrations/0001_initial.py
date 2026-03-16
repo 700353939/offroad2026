@@ -23,8 +23,8 @@ class Migration(migrations.Migration):
                 ('content', models.TextField(validators=[django.core.validators.MinLengthValidator(20)])),
                 ('trip_date', models.DateField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('destination', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='stories', to='destinations.destination')),
-                ('vehicles', models.ManyToManyField(blank=True, related_name='stories', to='vehicles.vehicle')),
+                ('destinations', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='stories', to='destinations.destinations')),
+                ('vehicles', models.ManyToManyField(blank=True, related_name='stories', to='vehicles.vehicles')),
             ],
             options={
                 'ordering': ['-trip_date'],

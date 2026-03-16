@@ -1,0 +1,27 @@
+{% extends "common/base.html" %}
+
+{% block content %}
+
+<div class="details">
+
+    <img src="{{ destination.image_url }}" alt="destination">
+
+    <h1>{{ destination.name }}</h1>
+
+    <p><strong>Location:</strong> {{ destination.location }}</p>
+
+    <p><strong>Difficulty:</strong> {{ destination.difficulty }}</p>
+
+    <p>{{ destination.description }}</p>
+
+    <div class="buttons">
+
+        <a href="{% url 'destination-edit' destination.pk %}" class="btn">Edit</a>
+
+        <a href="{% url 'destination-delete' destination.pk %}" class="btn delete">Delete</a>
+
+    </div>
+
+</div>
+
+{% endblock %}

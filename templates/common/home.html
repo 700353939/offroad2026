@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    This is home page
-</body>
-</html>
+{% extends "common/base.html" %}
+
+{% block content %}
+
+<section class="hero">
+
+    <h1>Offroad</h1>
+
+    <p>Discover amazing offroad destinations and share your adventure stories.</p>
+
+    <div class="hero-buttons">
+        <a href="{% url 'destination-list' %}" class="btn">Explore Destinations</a>
+        <a href="{% url 'story-create' %}" class="btn">Share Story</a>
+    </div>
+
+</section>
+
+{% endblock %}
