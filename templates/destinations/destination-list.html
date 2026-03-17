@@ -1,29 +1,42 @@
 {% extends "common/base.html" %}
+{% load static %}
+{% load custom_tags %}
 
 {% block content %}
-
+    
     <h1>Destinations</h1>
     
-    <a href="{% url 'destination-create'%}" class="btn">Add new destination</a>
-    
-    <div class="card-container">
-
-        {% for destination in destinations %}
-
-            <div class="card">
-
-                <img src="{{ destination.image_url }}" alt="destination">
-
-                <h3>{{ destination.name }}</h3>
-
-                <p>{{ destination.location }}</p>
-
-                <a href="{% url 'destination-details' destination.pk %}" class="btn">Details</a>
-
+        <form method="get">
+        <div class="search-container">
+            <div>
+                <input type="text" name="q" placeholder="Search..." value="{{ request.GET.q }}">
+                <button type="submit" class="btn">Search</button>
             </div>
+            <div  class="sort">
+                <div>Sort by....</div>
+                <select name="sort" onchange="this.form.submit()">
+                    <option value="">Default</option>
+                    <option value="name" {% if request.GET.sort == "name" %}selected{% endif %}>Name</option>
+                    <option value="difficulty" {% if request.GET.sort == "difficulty" %}selected{% endif %}>Difficulty</option>
+                </select>
+            </div>
+        </div>
+        </form>
 
+    
+    <a href="{% url 'destination-create'%}" class="btn">Add new destination</a>
+
+    <div class="card-container">
+        {% for destination in destinations %}
+            <div class="card">
+                <img src="{{ destination.image_url }}" alt="destination">
+                <h3>{{ destination.name|uppercase }}</h3>
+                <p>{{ destination.location }}</p>
+                <a href="{% url 'destination-details' destination.pk %}" class="btn">Details</a>
+            </div>
+        {% empty %}
+            <p>No destinations found.</p>
         {% endfor %}
-
     </div>
 
 {% endblock %}

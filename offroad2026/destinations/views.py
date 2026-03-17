@@ -9,6 +9,26 @@ class DestinationListView(ListView):
     template_name = "destinations/destination-list.html"
     context_object_name = "destinations"
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        search = self.request.GET.get("q")
+        sort = self.request.GET.get("sort")
+
+        if search:
+            queryset = queryset.filter(name__icontains=search)
+
+        if sort == "name":
+            queryset = queryset.order_by("name")
+        elif sort == "difficulty":
+
+            difficulty_order = {"easy": 0, "medium": 1, "hard": 2}
+            queryset = sorted(
+                queryset,
+                key=lambda d: difficulty_order.get(d.difficulty, 99)
+            )
+
+        return queryset
+
 
 class DestinationDetailView(DetailView):
     model = Destination
