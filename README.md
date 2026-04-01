@@ -23,7 +23,7 @@ Technologies Used
     HTML & CSS
 
 Database Configuration
-    Create a .env file based on .env.template and fill in the required environment variables.
+    PostgreSQL
 
 Installation
 
