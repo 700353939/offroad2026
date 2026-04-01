@@ -19,7 +19,7 @@ Project Structure
 Technologies Used    
     Python    
     Django    
-    PostgreSQL (Supabase)    
+    PostgreSQL  
     HTML & CSS
 
 Database Configuration
